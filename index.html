@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,25 +8,88 @@
     <!-- Google Fonts: Inter and Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
+
+    <!-- Theme Manager -->
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme');
+            var systemDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } else {
+                document.documentElement.setAttribute('data-theme', systemDark.matches ? 'dark' : 'light');
+            }
+
+            systemDark.addEventListener('change', function (e) {
+                if (!localStorage.getItem('theme')) {
+                    document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+                }
+            });
+        })();
+    </script>
+    <script src="js/animations.js" defer></script>
+    <script src="js/canvas-hero.js" defer></script>
 </head>
+
 <body>
-    
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-logo">Aptitude AI</a>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="index.html#features" class="nav-link">Features</a>
+                <a href="about.html" class="nav-link">About Us</a>
+            </nav>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <a href="https://aptitude-ai-peach.vercel.app/auth/signin" target="_blank" class="btn-nav">Log In</a>
+            </div>
+        </div>
+    </header>
+
     <!-- Hero Section -->
     <section class="hero-section" id="hero">
         <canvas id="hero-canvas"></canvas>
         <div class="hero-content">
-            <h1 class="hero-title fade-in">Aptitude AI.</h1>
-            <p class="hero-subtitle fade-in delay-1">The career companion that remembers you.</p>
-            <p class="hero-description fade-in delay-2">Turn practice into readiness. Conquer interviews and land opportunities without the anxiety.</p>
+            <h1 class="hero-title fade-in">Aptitude AI</h1>
+            <p class="hero-subtitle fade-in delay-1">Your career coach and interview copilot.</p>
+            <p class="hero-description typewriter-text">Turn practice into readiness. Conquer interviews and land
+                opportunities without the anxiety.</p>
             <div class="hero-cta-wrapper fade-in delay-3">
-                <a href="#features" class="btn-primary">Start Your Journey</a>
+                <a href="https://aptitude-ai-peach.vercel.app/" target="_blank" class="btn-primary">Enter the
+                    Workspace</a>
+                <a href="#features" class="btn-secondary">Explore the Method</a>
             </div>
+            <p class="trust-signal fade-in delay-4">Join 1,000+ job seekers upgrading their prep.</p>
         </div>
-        <div class="scroll-indicator fade-in delay-4">
-            <span>Scroll</span>
-            <div class="mouse"></div>
+        <div class="scroll-indicator fade-in delay-5">
+            <span class="scroll-text">scroll down to explore</span>
+            <div class="scroll-arrow"></div>
         </div>
     </section>
 
@@ -33,23 +97,27 @@
     <section class="section problem-section" id="problem">
         <div class="container">
             <h2 class="section-title fade-in">The gap between graduation and employment.</h2>
-            <p class="section-description fade-in">Students graduate without the soft skills employers demand. Career centers are overwhelmed. We're here to democratize career preparation.</p>
-            
+            <p class="section-description fade-in">Students graduate without the soft skills employers demand. Career
+                centers are overwhelmed. We're here to democratize career preparation.</p>
+
             <div class="value-prop-grid">
                 <div class="value-card fade-in">
                     <div class="card-icon">01</div>
                     <h3>Continuous Memory</h3>
-                    <p>Not a forgetful chatbot. Our AI coach learns from every mock session to target your weak spots next time.</p>
+                    <p>Not a forgetful chatbot. Our AI coach learns from every mock session to target your weak spots
+                        next time.</p>
                 </div>
                 <div class="value-card fade-in delay-1">
                     <div class="card-icon">02</div>
                     <h3>Confidence Dossiers</h3>
-                    <p>No infinite link dumps. We surface the right opportunities and tell you explicitly why you're a fit based on your practice data.</p>
+                    <p>No infinite link dumps. We surface the right opportunities and tell you explicitly why you're a
+                        fit based on your practice data.</p>
                 </div>
                 <div class="value-card fade-in delay-2">
                     <div class="card-icon">03</div>
                     <h3>Voice & Text Context</h3>
-                    <p>Practice live interviews using OpenAI Realtime voice or text. Get targeted feedback using NACE-aligned competencies.</p>
+                    <p>Practice live interviews using OpenAI Realtime voice or text. Get targeted feedback using
+                        NACE-aligned competencies.</p>
                 </div>
             </div>
         </div>
@@ -61,29 +129,58 @@
             <div class="sticky-wrapper">
                 <div class="features-content">
                     <h2 class="section-title fade-in">Built for readiness.</h2>
-                    
+
                     <div class="feature-row fade-in">
                         <div class="feature-text">
                             <h3>Experience Translator</h3>
-                            <p>Turn simple class projects into ATS-friendly, NACE-aligned resume bullets in seconds.</p>
+                            <p class="typewriter-text">Turn simple class projects into ATS-friendly, NACE-aligned resume
+                                bullets in seconds.</p>
+                            <a href="https://aptitude-ai-peach.vercel.app/translate" target="_blank"
+                                class="btn-primary mt-4">Try Translator</a>
                         </div>
-                        <div class="feature-visual graphic-1"></div>
+                        <div class="feature-visual graphic-1">
+                            <div class="resume-bullet-overlay">
+                                <p>→ Engineered a robust full-stack dashboard...</p>
+                                <p>→ Translated simple bullets into ATS-ready bullet points.</p>
+                                <p>→ Optimized database retrieval times by 25%...</p>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="feature-row fade-in">
                         <div class="feature-text">
                             <h3>Live Voice Coach</h3>
-                            <p>Real-time mock interviews. Get structured feedback and a clear session focus, then unlock a shareable digital badge.</p>
+                            <p class="typewriter-text">Real-time mock interviews. Get structured feedback and a clear
+                                session focus, then unlock a shareable digital badge.</p>
+                            <a href="https://aptitude-ai-peach.vercel.app/live-interview" target="_blank"
+                                class="btn-primary mt-4">Start Live Practice</a>
                         </div>
-                        <div class="feature-visual graphic-2"></div>
+                        <div class="feature-visual graphic-2">
+                            <div class="resume-bullet-overlay transcription-overlay">
+                                <p class="speaker-ai"><strong>Coach:</strong> "Tell me about a time you handled a tight
+                                    deadline."</p>
+                                <p class="speaker-user"><strong>You:</strong> "In my capstone project, our scope changed
+                                    midway..."</p>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="feature-row fade-in">
                         <div class="feature-text">
                             <h3>Opportunities Feed</h3>
-                            <p>Matched deadline-driven roles perfectly catered to your profile. The Confidence Dossier asks the Socratic questions so you decide.</p>
+                            <p class="typewriter-text">Matched deadline-driven roles perfectly catered to your profile.
+                                The Confidence Dossier asks the Socratic questions so you decide.</p>
+                            <a href="https://aptitude-ai-peach.vercel.app/interview" target="_blank"
+                                class="btn-primary mt-4">Explore Learning</a>
                         </div>
-                        <div class="feature-visual graphic-3"></div>
+                        <div class="feature-visual graphic-3">
+                            <div class="resume-bullet-overlay match-overlay">
+                                <div class="match-score">94% Match</div>
+                                <p><strong>Product Manager</strong> - TechFlow Inc.</p>
+                                <p class="match-reason">Strong overlap in agile frameworks and data analytics based on
+                                    recent mock sessions.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -100,7 +197,7 @@
 
     <footer>
         <div class="container footer-content fade-in">
-            <div class="footer-logo">Aptitude AI.</div>
+            <div class="footer-logo">Aptitude AI</div>
             <div class="footer-links">
                 <a href="#">Privacy</a>
                 <a href="#">Terms</a>
@@ -109,8 +206,5 @@
             <div class="footer-copy">&copy; 2026 Aptitude AI. All rights reserved.</div>
         </div>
     </footer>
-
-    <script src="js/animations.js"></script>
-    <script src="js/canvas-hero.js"></script>
 </body>
 </html>
