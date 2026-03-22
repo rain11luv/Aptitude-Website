@@ -605,6 +605,94 @@ h1, h2, h3, h4 {
     font-size: clamp(2.5rem, 5vw, 4rem);
 }
 
+/* About Page Layouts */
+.split-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    align-items: center;
+}
+@media (min-width: 900px) {
+    .split-layout {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .split-text {
+        flex: 1;
+        padding-right: 4rem;
+    }
+    .split-visual {
+        flex: 1;
+        width: 100%;
+    }
+}
+
+/* Testimonial Slider */
+.testimonial-slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 2rem 0;
+}
+.testimonial-track {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 2rem; /* space for scrollbar fallback */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.testimonial-track::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
+.testimonial-card {
+    flex: 0 0 85%;
+    max-width: 500px;
+    scroll-snap-align: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 24px;
+    padding: 2.5rem;
+    text-align: left;
+    transition: transform var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+@media (min-width: 768px) {
+    .testimonial-card {
+        flex: 0 0 60%;
+    }
+}
+@media (min-width: 1024px) {
+    .testimonial-card {
+        flex: 0 0 45%;
+    }
+}
+.testimonial-card:hover {
+    transform: translateY(-5px);
+}
+.testimonial-card .quote {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+}
+.testimonial-card .author strong {
+    display: block;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+}
+.testimonial-card .author span {
+    color: var(--accent-amber);
+    font-size: 0.85rem;
+}
+
 /* Footer */
 footer {
     padding: 4rem 0;
